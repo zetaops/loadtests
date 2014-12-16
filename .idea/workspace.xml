@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="522711af-1b04-4748-9fe3-5874bf1fc959" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gevent_pong.py" afterPath="$PROJECT_DIR$/gevent_pong.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="pyexp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,7 +61,7 @@
         <entry file="file://$PROJECT_DIR$/gevent_pong.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.15852048" vertical-offset="0" max-vertical-offset="757">
-              <caret line="8" column="50" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
+              <caret line="8" column="62" selection-start-line="8" selection-start-column="62" selection-end-line="8" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -391,12 +390,20 @@
       <option name="number" value="Default" />
       <updated>1418309549396</updated>
     </task>
+    <task id="LOCAL-00001" summary="~">
+      <created>1418733376039</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1418733376039</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1436" height="877" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -434,6 +441,8 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+    <MESSAGE value="~" />
+    <option name="LAST_COMMIT_MESSAGE" value="~" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -641,7 +650,7 @@
     <entry file="file://$PROJECT_DIR$/gevent_pong.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.15852048" vertical-offset="0" max-vertical-offset="757">
-          <caret line="8" column="50" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
+          <caret line="8" column="62" selection-start-line="8" selection-start-column="62" selection-end-line="8" selection-end-column="62" />
           <folding />
         </state>
       </provider>
