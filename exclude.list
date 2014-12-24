@@ -1,0 +1,9 @@
+*.log
+*.map
+examples
+*.coffee
+*.db
+*.pyc
+*~
+.idea
+*.png
