@@ -1,0 +1,35 @@
+.box{
+    text-align: center;
+border: #f4f4f4 solid 1px;
+background-color: rgb(61, 93, 105);
+color: #fff;
+font-family: monospace;
+    display:inline-block;
+    height:220px;
+}
+#xtra li {
+
+    display: block;
+    list-style: none;
+}
+#xtra{
+
+background-color: rgb(61, 93, 105);
+color: #fff;
+font-family: arial;
+width: 895px;
+padding: 10px;
+line-height: 15px;
+font-size: 12px;
+}
+
+
+/*canvas{*/
+    /*width:400px !important;*/
+    /*height:200px !important;*/
+/*}*/
+
+#cont{
+    width: 1000px;
+    margin: 40px auto;
+}
