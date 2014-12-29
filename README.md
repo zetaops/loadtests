@@ -1,6 +1,6 @@
-# WSGI Webserver Loadtesting Suite
+# WSGI Webserver Load Testing Suite
 
-This project aims to ease the testing of WSGI web servers (gunicorn and uWSGI for now) with the help of a few fabric tasks.
+This project aims to ease the testing of Python WSGI web servers (gunicorn and uWSGI for now) with the help of a few fabric tasks.
 Addition to utility fabric tasks, it shows realtime load visulation for RPS, CPU and Memory usage of web server.
 
 ![](https://raw.githubusercontent.com/zetaops/loadtests/master/blog/webui1.png)
@@ -68,7 +68,7 @@ Displaying detailed information for task 'test'
     Arguments: server='gunicorn', host='localhost', port='8000', gevent='', concurrency='50', workers='', threads='', debug='', nohup='', web='', duration='40', count='', proxy='', xtra=''
 
 
-Then, test suite can be run like this: 
+Tests can be run like this: 
 
     fab test:gunicorn,duration=10
     fab test:gunicorn,workers=10,web=1
