@@ -17,7 +17,6 @@ Command line options can be seen below;
 ➤ fab -l
 Available commands:
 
-    error  Call ``func`` with given error ``message``.
     kill   first we politely ask to stop, then throw a  SIGKILL signal, just in case...
     load   this will stress the server via wrk load testing tool.
     sync   syncs the files with test machine (to home dir. by default)
@@ -48,4 +47,4 @@ Displaying detailed information for task 'test':
     nohup: some OS'es unable to daemonize the server without this
     xtra: set any params for passing to server run command
 
-    Arguments: server='gunicorn', host='148.251.192.21', port='8000', gevent='', concurrency='50', workers='', threads='', debug='', nohup='', web='', duration='40', count='', proxy='', xtra=''
+    Arguments: server='gunicorn', host='localhost', port='8000', gevent='', concurrency='50', workers='', threads='', debug='', nohup='', web='', duration='40', count='', proxy='', xtra=''

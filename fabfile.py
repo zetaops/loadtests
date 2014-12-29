@@ -5,7 +5,7 @@ from fabric.api import env, run, cd
 from fabric.context_managers import shell_env
 from fabric.contrib.project import rsync_project
 import webbrowser
-from fabric.utils import error, warn
+from fabric import utils
 
 # Set your SSH access credentials bellow
 # You need fabric (pip install fabric) to use this file.
@@ -16,7 +16,7 @@ from fabric.utils import error, warn
 # git clone https://github.com/wg/wrk.git
 #
 
-HOST = '148.251.192.21'
+HOST = 'localhost'
 PORT = "22"
 
 # env.user = ''
@@ -111,9 +111,9 @@ def test(server="gunicorn", host=HOST, port='8000', gevent='', concurrency='50',
     srv = SERVERS[server]
 
     if count and gevent:
-        error("PyCounters and gevent can not be used together")
+        utils.error("PyCounters and gevent can not be used together")
     if proxy and port != '8000':
-        warn("Please be sure that your nginx configuration (%s.conf) "
+        utils.warn("Please be sure that your nginx configuration (%s.conf) "
              "reflects to your current port setting: %s" % (server, port))
 
     sync()
