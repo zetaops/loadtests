@@ -1,4 +1,3 @@
-*.log
 *.map
 examples
 *.coffee
@@ -6,4 +5,3 @@ examples
 *.pyc
 *~
 .idea
-*.png
