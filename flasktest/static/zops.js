@@ -74,11 +74,11 @@ function updateMEM(value) {
 
 function updateMaxValues() {
     // displays max values
-    maxStats = "<b>Max Values</b>"
-    maxStats += "<br>Max CPU: " + maxCPU + "% ";
-    maxStats += " | Max Memory: " + maxMEM + " MB";
-    maxStats += " | Max RPS: " + maxRPS;
-    if (totalSecs > 25)maxStats += " | Mean RPS: " + parseInt(totalReq / totalSecs);
+    maxStats = "<h5>Max Values</h5>"
+    maxStats += "<br><b>Max CPU:</b> " + maxCPU + "% ";
+    maxStats += " | <b>Max Memory:</b> " + maxMEM + " MB";
+    maxStats += " | <b>Max RPS:</b> " + maxRPS;
+    if (totalSecs > 25)maxStats += " | <b>Mean RPS:</b> " + parseInt(totalReq / totalSecs);
     document.getElementById("maxVals").innerHTML = maxStats
 }
 
@@ -87,7 +87,7 @@ function updateServerData(data) {
     srvData = ''
     for (var key in data) {
         if (data.hasOwnProperty(key)) {
-            srvData += "<b>" + key + "</b><br>" + data[key] + "<br>"
+            srvData += "<h5>" + key + "</h5><br>" + data[key] + "<br>"
         }
         document.getElementById("srvData").innerHTML = srvData
     }
