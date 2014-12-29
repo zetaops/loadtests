@@ -1,14 +1,22 @@
 # WSGI Webserver Loadtesting Thingy
 
-This project aims to ease the testing of WSGI web servers with the help of a few Fabric tasks.
-It has a realtime load visulation for RPS, CPU and Memory usage of web server.
+This project aims to ease the testing of WSGI web servers (gunicorn and uWSGI for now) with the help of a few fabric tasks.
+Addition to utility fabric tasks, it shows realtime load visulation for RPS, CPU and Memory usage of web server.
 
 ![](https://raw.githubusercontent.com/zetaops/loadtests/master/blog/webui1.png)
 
-We used PyCounters to count and display the requests per second. Unfortunately we realized that, PyCounters is not not
-working with async cores (gevent) So we added support for the both web server's own stat sharing protocols. (a client for uwsgi and an udp server for the gunicorn)
+At first, we implement PyCounters to gather the requests per second data. But later we realized that, PyCounters isn't
+working with async cores (gevent). So we added support for the both web server's own stat sharing protocols. (a client for uwsgi and an udp server for the gunicorn)
+Currently 
 
-We used psutil to collect the memory and cpu usage of the web server process.
+We're using psutil to collect the memory and cpu usage of the web server process.
+
+
+## Dependency list
+#### (for a Debian based distro)
+    apt-get install libssl-dev nginx python-pip build-essential python-dev git
+    pip install flask psutil
+    git clone https://github.com/wg/wrk.git & build & copy to /usr/local/bin
 
 
 Command line options can be seen below;

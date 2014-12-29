@@ -26,8 +26,8 @@ class StatsGenerator:
         self.get_rps = getattr(self, 'get_rps_from_%s' % self.count_method, self.get_rps_from_pycounters)
         self.server_data = {
             "concurrency": os.environ.get("TCONCURRENCY"),
-            "serverCommandd": os.environ.get("SERVER_CMD"),
-            "debugMode": 'Yes' if os.environ.get("DEBUGMODE",'') else 'No',
+            "serverCommand": os.environ.get("SERVER_CMD"),
+            "debugMode": 'Yes' if os.environ.get("DEBUGMODE", '') else 'No',
             "RPSCountingMethod": self.count_method,
         }
 

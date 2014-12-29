@@ -7,22 +7,21 @@ from fabric.contrib.project import rsync_project
 import webbrowser
 from fabric import utils
 
-# Set your SSH access credentials bellow
-# You need fabric (pip install fabric) to use this file.
-# run fab -l to see available commands.
-# You need the fallowing packages in your test machine;
-# apt-get install libssl-dev nginx python-pip build-essential python-dev git
-# pip install flask psutils
-# git clone https://github.com/wg/wrk.git
-#
+# Set your access credentials in a local_settings.py file
+# or just change the contents of except block.
+try:
+    from local_settings import *
+except ImportError:
+    HOST = 'localhost'
+    PORT = "22"
+    WORKING_DIR = ''
+    USER = ''
 
-HOST = 'localhost'
-PORT = "22"
-
-# env.user = ''
+if USER:
+    env.user = USER
 env.hosts = [HOST]
 env.port = PORT
-WORK_DIR = '/home/%s/' % (env.user or env.local_user)
+WORK_DIR = WORKING_DIR if WORKING_DIR else '/home/%s/' % (env.user or env.local_user)
 
 SERVERS = {
     'gunicorn': {
