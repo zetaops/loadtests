@@ -12,17 +12,18 @@ Currently
 We're using psutil to collect the memory and cpu usage of the web server process.
 
 
-## Dependency list
+## Dependencies
 #### (for a Debian based distro)
-    apt-get install libssl-dev nginx python-pip build-essential python-dev git
+    apt-get install libssl-dev nginx build-essential python-dev  python-pip git
     pip install flask psutil
-    git clone https://github.com/wg/wrk.git & build & copy to /usr/local/bin
+    git clone https://github.com/wg/wrk.git; cd wrk; make ; sudo cp wrk /usr/local/bin
 
 
 Command line options can be seen below;
 
 
 ➤ fab -l
+
 Available commands:
 
     kill   first we politely ask to stop, then throw a  SIGKILL signal, just in case...
@@ -32,6 +33,7 @@ Available commands:
 
 
 ➤ fab -d test
+
 Displaying detailed information for task 'test':
 
     deploy files, run the selected wsgi server and start load testing.
