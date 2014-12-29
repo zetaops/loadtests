@@ -48,6 +48,8 @@ Command line options can be seen below;
 
 
 Displaying detailed information for task 'test'
+
+
 ➤ fab -d test
 
     deploy files, run the selected wsgi server and start load testing.
