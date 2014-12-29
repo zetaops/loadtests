@@ -1,4 +1,4 @@
-# WSGI Webserver Loadtesting Thingy
+# WSGI Webserver Loadtesting Suite
 
 This project aims to ease the testing of WSGI web servers (gunicorn and uWSGI for now) with the help of a few fabric tasks.
 Addition to utility fabric tasks, it shows realtime load visulation for RPS, CPU and Memory usage of web server.
