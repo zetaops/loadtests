@@ -28,9 +28,12 @@ Create a __local_settings.py__ file with the following contents.
     USER = ''
 ```
 
-    fab test:gunicorn
+Then, test suite can be run like this: 
+
+    fab test:gunicorn,duration=10
+    fab test:gunicorn,workers=10,web=1
     fab kill:gunicorn
-    fab test:uwsgi,concurrency=200,count=1,web=1,duration=40
+    fab test:uwsgi,concurrency=200,count=1,duration=40
     fab load:200
 
 Command line options can be seen below;
@@ -69,3 +72,6 @@ Displaying detailed information for task 'test'
     xtra: set any params for passing to server run command
 
     Arguments: server='gunicorn', host='localhost', port='8000', gevent='', concurrency='50', workers='', threads='', debug='', nohup='', web='', duration='40', count='', proxy='', xtra=''
+
+
+If you want to test the "behind nginx" performance, you should configure nginx with the config files stored within ngnix directory
