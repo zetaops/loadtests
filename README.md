@@ -19,22 +19,33 @@ We're using psutil to collect the memory and cpu usage of the web server process
     git clone https://github.com/wg/wrk.git; cd wrk; make ; sudo cp wrk /usr/local/bin
 
 
+## Installation & Usage
+Create a __local_settings.py__ file with the following contents.
+```python
+    HOST = ''
+    PORT = "22"
+    WORKING_DIR = ''
+    USER = ''
+```
+
+    fab test:gunicorn
+    fab kill:gunicorn
+    fab test:uwsgi,concurrency=200,count=1,web=1,duration=40
+    fab load:200
+
 Command line options can be seen below;
 
 
 ➤ fab -l
 
-Available commands:
-
     kill   first we politely ask to stop, then throw a  SIGKILL signal, just in case...
     load   this will stress the server via wrk load testing tool.
-    sync   syncs the files with test machine (to home dir. by default)
+    sync   syncs the files with test machine (to home directory by default)
     test   deploy files, run the selected wsgi server and start load testing.
 
 
+Displaying detailed information for task 'test'
 ➤ fab -d test
-
-Displaying detailed information for task 'test':
 
     deploy files, run the selected wsgi server and start load testing.
 

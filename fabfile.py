@@ -8,7 +8,7 @@ import webbrowser
 from fabric import utils
 
 # Set your access credentials in a local_settings.py file
-# or just change the contents of except block.
+# or just change the contents of the except block.
 try:
     from local_settings import *
 except ImportError:
