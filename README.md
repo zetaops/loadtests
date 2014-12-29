@@ -7,9 +7,9 @@ Addition to utility fabric tasks, it shows realtime load visulation for RPS, CPU
 
 At first, we implement PyCounters to gather the requests per second data. But later we realized that, PyCounters isn't
 working with async cores (gevent). So we added support for the both web server's own stat sharing protocols. (a client for uwsgi and an udp server for the gunicorn)
-For non-async workers, pycounters can be enabled with count parameter. 
+For non-async workers, pycounters can be enabled with __count__ parameter. 
 
-We're using psutil to collect the memory and cpu usage of the web server process.
+psutil used to collect the memory and cpu usage of the web server process.
 
 
 ## Dependencies
