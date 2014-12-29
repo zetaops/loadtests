@@ -26,7 +26,6 @@ class SocketReporter(BaseReporter):
 
     def output_values(self, counter_values):
         #not sure but probably this method will be called from PyCounter's "leader" collector process
-
         if counter_values['requests_frequency'] and counter_values['requests_frequency'] > 0:
             self.RPS = str(counter_values['requests_frequency'])
             self.serv_results()

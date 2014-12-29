@@ -24,7 +24,12 @@ class StatsGenerator:
         if init_stats_collector:
             init_stats_collector()
         self.get_rps = getattr(self, 'get_rps_from_%s' % self.count_method, self.get_rps_from_pycounters)
-        self.server_data = self.get_server_data()
+        self.server_data = {
+            "concurrency": os.environ.get("TCONCURRENCY"),
+            "serverCommandd": os.environ.get("SERVER_CMD"),
+            "debugMode": 'Yes' if os.environ.get("DEBUGMODE",'') else 'No',
+            "RPSCountingMethod": self.count_method,
+        }
 
 
     def init_gunicorn_stats(self):
@@ -32,17 +37,13 @@ class StatsGenerator:
         self.req_per_sec = defaultdict(int)
         start_new_thread(self.gunicorn_statsd, ())
 
+
     def init_uwsgi_stats(self):
         self.last_tot_time = time()
         self.last_reqnumber_per_worker = defaultdict(int)
         self.last_reqnumber_per_core = defaultdict(int)
 
-    def get_server_data(self):
-        return {
-            "concurrency": os.environ.get("TCONCURRENCY"),
-            "serverCommandd": os.environ.get("SERVER_CMD"),
-            "countMethod": self.count_method,
-        }
+
     @staticmethod
     def get_server_name():
         natively_supported = ['gunicorn', 'uwsgi']
@@ -85,8 +86,8 @@ class StatsGenerator:
     FIRST_ITERATION = True
 
     def generate_stats(self):
-        # json stats generator for realtime load visiulation
-        # sends
+        # json stat generator for realtime load visiulation
+        # inits the json list and sends the server information to the client at first iteration
 
         while 1:
             if not self.FIRST_ITERATION:
@@ -97,9 +98,8 @@ class StatsGenerator:
                 except Exception, e:
                     yield '{"error": "%s"},' % e
             else:
-                # this will make our data stream a valid json
                 self.FIRST_ITERATION = False
-                yield '{"rp":[%s,' % dumps(self.get_server_data())
+                yield '{"rp":[%s,' % dumps(self.server_data)
 
 
     def get_rps_from_gunicorn(self):
@@ -112,7 +112,7 @@ class StatsGenerator:
         s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         s.bind(('127.0.0.1', 8125))
         while 1:
-            if ".status.200" in s.recvfrom(9000)[0]:
+            if ".status.200" in s.recvfrom(100)[0]:
                 self.req_per_sec[int(time())] += 1
 
     def get_rps_from_uwsgi(self):

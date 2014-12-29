@@ -6,11 +6,7 @@ color: #fff;
 font-family: monospace;
     display:inline-block;
     height:220px;
-}
-#xtra li {
-
-    display: block;
-    list-style: none;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.46);
 }
 #xtra{
 
@@ -21,6 +17,8 @@ width: 895px;
 padding: 10px;
 line-height: 15px;
 font-size: 12px;
+    margin-top:6px;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.46);
 }
 
 

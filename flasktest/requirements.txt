@@ -1,0 +1,6 @@
+Flask>=0.10.1
+gevent
+gunicorn>=19.1.1
+psutil
+pycounters>=0.7
+uWSGI>=2.0.8
