@@ -3,7 +3,7 @@
 This project aims to ease the testing of Python WSGI web servers (gunicorn and uWSGI for now) with the help of a few fabric tasks.
 Addition to utility fabric tasks, it shows realtime load visulation for RPS, CPU and Memory usage of web server.
 
-![](https://raw.githubusercontent.com/zetaops/loadtests/master/blog/webui1.png)
+![](https://raw.githubusercontent.com/zetaops/loadtests/master/docs/webui1.png)
 
 At first, we implement PyCounters to gather the requests per second data. But later we realized that, PyCounters isn't
 working with async cores (gevent). So we added support for the both web server's own stat sharing protocols. (a client for uwsgi and an udp server for the gunicorn)
