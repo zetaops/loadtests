@@ -1,5 +1,5 @@
 from collections import defaultdict
-from json import loads,dumps
+from json import loads, dumps
 import socket
 from thread import start_new_thread
 from time import sleep, time
@@ -18,7 +18,7 @@ class StatsGenerator:
     """
 
     def __init__(self, server_process_name=None):
-        self.server_process_name = server_process_name or   self.get_server_name()
+        self.server_process_name = server_process_name or self.get_server_name()
         self.count_method = "pycounters" if os.environ.get("USE_PYCOUNTERS") else self.server_process_name
         init_stats_collector = getattr(self, 'init_%s_stats' % self.count_method, None)
         if init_stats_collector:
@@ -48,12 +48,10 @@ class StatsGenerator:
     def get_server_name():
         natively_supported = ['gunicorn', 'uwsgi']
         for s in natively_supported:
-            if s in os.environ.get('SERVER_SOFTWARE').lower():
+            if s in os.environ.get('SERVER_SOFTWARE', '').lower():
                 return s
+        raise NotImplementedError("Can't identify any supported WSGI server")
 
-
-    def get_server_type(self):
-        return self.server_process_name
 
     def get_rps(self):
         # this method should be overriden at init stage with one of the apopriate get_rps_from_X methods
@@ -69,6 +67,7 @@ class StatsGenerator:
             rps = rps_client.recv_bytes()
             rps_client.close()
         except:
+            raise
             rps = 0
         return rps
 
@@ -94,7 +93,7 @@ class StatsGenerator:
                 sleep(0.5)
                 try:
                     mem, cpu = self.get_process_stats()
-                    yield '%s,' % dumps({"RPS": self.get_rps(), "MEM":mem, "CPU": cpu})
+                    yield '%s,' % dumps({"RPS": self.get_rps(), "MEM": mem, "CPU": cpu})
                 except Exception, e:
                     yield '{"error": "%s"},' % e
             else:

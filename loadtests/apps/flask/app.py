@@ -1,6 +1,7 @@
 import os
 from flask import Response, Flask
-from stats_generator import StatsGenerator
+from loadtests.stats.stats_generator import StatsGenerator
+
 
 app = Flask(__name__)
 app.debug = os.environ.get('DEBUGMODE', '') != ''
@@ -8,7 +9,7 @@ app.debug = os.environ.get('DEBUGMODE', '') != ''
 if os.environ.get('USE_PYCOUNTERS') == '1':
     # pycounter's import has side effects :(
     # immediately creates a thread which crashes the server when combined with gevent
-    from pycount import occurrence
+    from loadtests.stats.pycount import occurrence
 else:
     occurrence = lambda m: 0
 

@@ -66,7 +66,7 @@ def kill(server, bequiet=False):
     """
     first we politely ask to stop, then throw a  SIGKILL signal, just in case...
     """
-    with cd(WORK_DIR + "flasktest"):
+    with cd(WORK_DIR + "flask"):
         run(SERVERS[server]['grace_kill'], quiet=bequiet, warn_only=not bequiet)
         run("killall wrk", quiet=bequiet, warn_only=not bequiet)
         time.sleep(1)
@@ -128,11 +128,11 @@ def test(server="gunicorn", host=HOST, port='8000', gevent='', concurrency='50',
         'xtra': xtra,
     }
 
-    with cd(WORK_DIR + "flasktest"):
+    with cd(WORK_DIR + "flask"):
         runcmd = srv['run'].format(**options)
         use_pycounters = '1' if count else ''
-        # server_software will be used for rps calculation,
-        # other env vars will be passed to the web client
+        # server_software and use_pycounters are required for rps calculation,
+        # other env vars will be shown to user via web client
         with shell_env(SERVER_SOFTWARE=server, USE_PYCOUNTERS=use_pycounters,
                        ASYNC_MODE=str(gevent), TCONCURRENCY=concurrency,
                        SERVER_CMD=runcmd, DEBUGMODE=debug):
